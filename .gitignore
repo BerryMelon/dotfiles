@@ -1,0 +1,4 @@
+#ignore bundles
+/vim/vim/bundle/
+
+*.swp
