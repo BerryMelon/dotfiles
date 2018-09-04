@@ -12,7 +12,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'NLKNguyen/papercolor-theme'
@@ -20,6 +21,8 @@ Plugin 'keith/swift.vim'
 Plugin 'kballard/vim-swift'
 Plugin 'rkulla/pydiction'
 Plugin 'tpope/vim-surround'
+Plugin 'gfontenot/vim-xcode'
+Plugin 'tpope/vim-dispatch'   " Asynchronous build
 call vundle#end()            " required
 " }}}
 
@@ -90,8 +93,42 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint', 'swiftc']
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint', 'swiftc', 'swift']
 let g:syntastic_python_checkers = ['python3', 'flake8', 'pycodestyle']
+let g:syntastic_objc_checkers = ['gcc','oclint']
+
+" XCode Stuff ------------------------------------
+" clang_complete settings
+let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"
+let g:clang_auto_user_options="compile_commands.json, path, .clang_complete"
+let g:clang_complete_auto = 0
+let g:clang_periodic_quickfix = 0
+let g:clang_close_preview = 1
+" For Objective-C, this needs to be active, otherwise multi-parameter methods won't be completed correctly
+let g:clang_snippets = 1
+let g:clang_auto_select = 1
+" Snipmate does not work anymore, ultisnips is the recommended plugin
+" let g:clang_snippets_engine = 'ultisnips'
+" show diagnostics
+let g:clang_complete_copen = 1
+nnoremap <leader>c :cc<cr>
+
+let g:ycm_semantic_triggers = {
+    \ 'objc' : ['re!\@"\.*"\s',
+    \ 're!\@\w+\.*\w*\s',
+    \ 're!\@\(\w+\.*\w*\)\s',
+    \ 're!\@\(\s*',
+    \ 're!\@\[.*\]\s',
+    \ 're!\@\[\s*',
+    \ 're!\@\{.*\}\s',
+    \ 're!\@\{\s*',
+    \ "re!\@\’.*\’\s",
+    \ '#ifdef ',
+    \ 're!:\s*',
+    \ 're!=\s*',
+    \ 're!,\s*', ],
+    \ }
+let g:xcode_default_simulator = 'iPhone X'
 
 " Line numbers hybrid
 :augroup numbertoggle

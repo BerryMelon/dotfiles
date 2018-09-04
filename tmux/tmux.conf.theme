@@ -1,0 +1,63 @@
+set -g pane-active-border-bg default
+set -g pane-active-border-fg "colour14"
+set -g pane-border-fg "colour239"
+
+set -g message-fg black
+set -g message-bg "colour14"
+
+set -g status-justify left
+set -g status-bg "colour236"
+set -g status-fg "colour14"
+
+setw -g clock-mode-colour "colour14"
+
+setw -g status-left-fg black
+setw -g status-left-bg "colour14"
+
+set -g status-right-length "100"
+# 24 hour time: `%H:%M`
+# 12 hour time: `%-I:%M %p`
+
+setw -g window-status-format " #I: #W "
+# separator symbols: ┃ ║ │ ❮  ❯ ╲ ╱ left bar: ⎸ right bar: ⎹
+setw -g window-status-separator ""
+setw -g window-status-fg "colour14"
+
+setw -g window-status-current-fg white
+setw -g window-status-current-bg "colour239"
+setw -g window-status-current-format "#[fg="colour14"] #[fg=white]#I: #W#[fg=colour14] "
+
+setw -g window-status-bell-fg "colour9"
+setw -g window-status-activity-fg yellow
+
+# status left/right content:
+#   - separate main sections with '|'
+#   - separate subsections with ','
+#   - built-in variables are:
+#     - #{battery_bar}
+#     - #{battery_hbar}
+#     - #{battery_percentage}
+#     - #{battery_status}
+#     - #{battery_vbar}
+#     - #{circled_session_name}
+#     - #{hostname_ssh}
+#     - #{hostname}
+#     - #{loadavg}
+#     - #{pairing}
+#     - #{prefix}
+#     - #{root}
+#     - #{synchronized}
+#     - #{uptime_d}
+#     - #{uptime_h}
+#     - #{uptime_m}
+#     - #{uptime_s}
+#     - #{username}
+#     - #{username_ssh}
+
+
+## set -g status-right "#[bg=colour239]#[fg=white] %a %B %-d, %Y #[fg=colour14].:. #[fg=white]%H:%M #[fg=black,bg=colour14] #h "
+## setw -g status-left " #S "
+
+
+setw -g status-left " #S "
+set -g status-right "#{battery_percentage}#[fg=white] | %R | %d %b "
