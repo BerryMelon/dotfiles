@@ -12,7 +12,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
-" Plugin 'ervandew/supertab'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'airblade/vim-gitgutter'
@@ -21,8 +20,8 @@ Plugin 'keith/swift.vim'
 Plugin 'kballard/vim-swift'
 Plugin 'rkulla/pydiction'
 Plugin 'tpope/vim-surround'
-Plugin 'gfontenot/vim-xcode'
 Plugin 'tpope/vim-dispatch'   " Asynchronous build
+Plugin 'jerrymarino/SwiftPlayground.vim'
 call vundle#end()            " required
 " }}}
 
@@ -70,7 +69,8 @@ nnoremap <silent> <leader>bc :call BgToggleSol()<cr>
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 
-:nnoremap <leader>n <esc>:NERDTreeToggle<cr>
+:nnoremap <leader>nn <esc>:NERDTreeToggle<cr>
+:nnoremap <leader>nr <esc>:NERDTree<cr>
 :nnoremap <leader>; :execute "normal! mqA;\e`q"<cr>
 " greps word under cursor
 " :nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
@@ -89,46 +89,44 @@ set statusline+=%*
 let g:javascript_plugin_jsdoc = 1
 let php_folding = 1
 let php_sql_query = 1
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint', 'swiftc', 'swift']
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 let g:syntastic_python_checkers = ['python3', 'flake8', 'pycodestyle']
-let g:syntastic_objc_checkers = ['gcc','oclint']
 
-" XCode Stuff ------------------------------------
-" clang_complete settings
-let g:clang_library_path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"
-let g:clang_auto_user_options="compile_commands.json, path, .clang_complete"
-let g:clang_complete_auto = 0
-let g:clang_periodic_quickfix = 0
-let g:clang_close_preview = 1
-" For Objective-C, this needs to be active, otherwise multi-parameter methods won't be completed correctly
-let g:clang_snippets = 1
-let g:clang_auto_select = 1
-" Snipmate does not work anymore, ultisnips is the recommended plugin
-" let g:clang_snippets_engine = 'ultisnips'
-" show diagnostics
-let g:clang_complete_copen = 1
-nnoremap <leader>c :cc<cr>
+"
+" YouCompleteMe options
+"
 
-let g:ycm_semantic_triggers = {
-    \ 'objc' : ['re!\@"\.*"\s',
-    \ 're!\@\w+\.*\w*\s',
-    \ 're!\@\(\w+\.*\w*\)\s',
-    \ 're!\@\(\s*',
-    \ 're!\@\[.*\]\s',
-    \ 're!\@\[\s*',
-    \ 're!\@\{.*\}\s',
-    \ 're!\@\{\s*',
-    \ "re!\@\’.*\’\s",
-    \ '#ifdef ',
-    \ 're!:\s*',
-    \ 're!=\s*',
-    \ 're!,\s*', ],
-    \ }
-let g:xcode_default_simulator = 'iPhone X'
+let g:ycm_register_as_syntastic_checker = 1 "default 1
+let g:Show_diagnostics_ui = 1 "default 1
+
+"will put icons in Vim's gutter on lines that have a diagnostic set.
+"Turning this off will also turn off the YcmErrorLine and YcmWarningLine
+"highlighting
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_always_populate_location_list = 1 "default 0
+let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
+
+let g:ycm_complete_in_strings = 1 "default 1
+let g:ycm_collect_identifiers_from_tags_files = 0 "default 0
+let g:ycm_path_to_python_interpreter = '' "default ''
+
+let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
+let g:ycm_server_log_level = 'info' "default info
+
+let g:ycm_global_ycm_extra_conf = '~/dotfiles/vim/ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
+let g:ycm_confirm_extra_conf = 1
+
+let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
+let g:ycm_filetype_whitelist = { '*': 1 }
+let g:ycm_key_invoke_completion = '<C-Space>'
+
+nnoremap <F11> :YcmForceCompileAndDiagnostics <CR>
 
 " Line numbers hybrid
 :augroup numbertoggle
