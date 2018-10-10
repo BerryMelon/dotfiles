@@ -9,19 +9,20 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim' 
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
 Plugin 'Valloric/YouCompleteMe'
+" Plugin 'jerrymarino/iCompleteMe'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'keith/swift.vim'
-Plugin 'kballard/vim-swift'
 Plugin 'rkulla/pydiction'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-dispatch'   " Asynchronous build
-Plugin 'jerrymarino/SwiftPlayground.vim'
+" Plugin 'jerrymarino/SwiftPlayground.vim'
+Plugin 'BerryMelon/SwiftPlayground.vim'
 call vundle#end()            " required
 " }}}
 
@@ -72,17 +73,20 @@ nnoremap <silent> <leader>bc :call BgToggleSol()<cr>
 :nnoremap <leader>nn <esc>:NERDTreeToggle<cr>
 :nnoremap <leader>nr <esc>:NERDTree<cr>
 :nnoremap <leader>; :execute "normal! mqA;\e`q"<cr>
+:nnoremap <leader>d :YcmCompleter GetDoc<cr>
 " greps word under cursor
 " :nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
 
 " copy to system clipboard
 :vnoremap <leader>y :'<,'>w !pbcopy<cr><cr>
+:nnoremap <leader>p :set paste<CR>:r !pbpaste<cr> \|:set nopaste<cr>
 
 autocmd FileType python nnoremap <buffer> <F9> :w<cr> :exec '!clear; python' shellescape(@%, 1)<cr>
 
 " Statusline customization
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{FugitiveStatusline()}
 set statusline+=%*
 
 " Syntax related stuff
@@ -90,19 +94,13 @@ let g:javascript_plugin_jsdoc = 1
 let php_folding = 1
 let php_sql_query = 1
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
-let g:syntastic_python_checkers = ['python3', 'flake8', 'pycodestyle']
-
 "
 " YouCompleteMe options
 "
 
 let g:ycm_register_as_syntastic_checker = 1 "default 1
 let g:Show_diagnostics_ui = 1 "default 1
+let g:ycm_show_diagnostics_ui = 1
 
 "will put icons in Vim's gutter on lines that have a diagnostic set.
 "Turning this off will also turn off the YcmErrorLine and YcmWarningLine
