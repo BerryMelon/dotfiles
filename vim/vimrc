@@ -44,6 +44,10 @@ set foldmethod=syntax
 set foldnestmax=1
 set foldlevelstart=99
 
+:if &ft == 'python'
+    :set foldmethod=indent
+:endif
+
 :if $ISLIGHT
     :set background=light
 :else
