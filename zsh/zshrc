@@ -116,3 +116,6 @@ eval "$(pyenv virtualenv-init -)"
 # Disk usage
 alias du='du -khs'
 alias zshrc='vi ~/.zshrc'
+
+LANG="en_US.UTF-8"
+export LANG
