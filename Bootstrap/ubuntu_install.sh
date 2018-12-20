@@ -7,7 +7,6 @@ sudo apt-get update
 sudo apt-get upgrade
 
 echo "installing packages..."
-sudo apt-get install ${PACKAGES[@]} -y
 sudo apt-get install git -y
 sudo apt-get install python -y
 sudo apt-get install python3 -y

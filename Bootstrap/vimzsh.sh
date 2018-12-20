@@ -20,7 +20,7 @@ cd ~
 
 echo "Setting up dotfiles.."
 
-cd ../dotfiles
+cd dotfiles
 
 echo "creating backups for current vimrc, zshrc, oh-my-zsh"
 mv ~/.vimrc ~/.vimrc_backup
