@@ -22,7 +22,13 @@ sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:keithw/mosh
 sudo apt-get install mosh -y
 
-sudo apt-get install git python-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
+sudo apt-get dist-upgrade -y
+sudo apt-get install build-essential python-dev python-setuptools python-pip python-smbus -y
+sudo apt-get install libncursesw5-dev libgdbm-dev libc6-dev -y
+sudo apt-get install zlib1g-dev libsqlite3-dev tk-dev -y
+sudo apt-get install libssl-dev openssl -y
+sudo apt-get install libffi-dev -y
+sudo apt-get install make libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
 sudo pip install virtualenvwrapper
 
 git clone https://github.com/yyuu/pyenv.git ~/.pyenv
