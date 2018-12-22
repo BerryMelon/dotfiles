@@ -45,4 +45,6 @@ pyenv global 3.7.0
 
 source vimzsh.sh
 
+git config --global alias.tree "log --graph --decorate --pretty=oneline --abbrev-commit"
+
 figlet Welcome Doheny.
