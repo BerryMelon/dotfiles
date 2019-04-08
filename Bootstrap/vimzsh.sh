@@ -46,9 +46,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "Installing Vim plugins"
 vim +PluginInstall +qall
 
-echo "Setting up Plugin Configs.."
-cd ~/.vim/bundle/YouCompleteMe/install.py --clang-completer
-
 zsh
 
 tmux new -s main
