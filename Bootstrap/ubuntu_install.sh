@@ -27,7 +27,7 @@ sudo apt-get install libncursesw5-dev libgdbm-dev libc6-dev -y
 sudo apt-get install zlib1g-dev libsqlite3-dev tk-dev -y
 sudo apt-get install libssl-dev openssl -y
 sudo apt-get install libffi-dev -y
-sudo apt-get install make libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
+sudo apt-get install make libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev -y
 
 source vimzsh.sh
 
