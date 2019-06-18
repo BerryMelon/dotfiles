@@ -27,21 +27,7 @@ sudo apt-get install libncursesw5-dev libgdbm-dev libc6-dev -y
 sudo apt-get install zlib1g-dev libsqlite3-dev tk-dev -y
 sudo apt-get install libssl-dev openssl -y
 sudo apt-get install libffi-dev -y
-sudo apt-get install make libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev
-sudo pip install virtualenvwrapper
-
-git clone https://github.com/yyuu/pyenv.git ~/.pyenv
-git clone https://github.com/yyuu/pyenv-virtualenvwrapper.git ~/.pyenv/plugins/pyenv-virtualenvwrapper
-
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-echo 'pyenv virtualenvwrapper' >> ~/.zshrc
-
-echo "Installing and setting up pyenv"
-pyenv install 2.7.10
-pyenv install 3.7.0
-pyenv global 3.7.0
+sudo apt-get install make libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev -y
 
 source vimzsh.sh
 

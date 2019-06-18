@@ -43,8 +43,6 @@ PACKAGES=(
     zsh-completions
     figlet
     node
-    pyenv
-    pyenv-virtualenv
     pkg-config
     ruby
     cmake
@@ -57,22 +55,6 @@ brew install ${PACKAGES[@]}
 
 echo "cleaning up..."
 brew cleanup
-
-# echo "Installing cask..."
-# brew install caskroom/cask/brew-cask
-# 
-# CASKS=(
-    # iterm2
-    # slack
-# )
-# 
-# echo "Installing cask apps..."
-# brew cask install ${CASKS[@]}
-
-# echo "Installing and setting up pyenv"
-# pyenv install 2.7.10
-# pyenv install 3.7.0
-# pyenv global 3.7.0
 
 source vimzsh.sh
 
