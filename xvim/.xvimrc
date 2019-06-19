@@ -40,7 +40,7 @@ set number
 set clipboard=unnamed
 
 " noremap <space>b to toggle a breakpoint at the current line
-nnoremap ,b :xccmd toggleBreakpointAtCurrentLine<CR>
+nnoremap -b :xccmd toggleBreakpointAtCurrentLine<CR>
 
 " Better navigation
 nnoremap H ^
@@ -52,9 +52,14 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+" Move between .m/.h
+nnoremap <C-n> :np<CR>
+
 " Tab noremappings
-nnoremap ,tt :xccmd newTab<CR>
-nnoremap ,tc :tabclose<CR>
+nnoremap <C-t>n :xccmd newTab<CR>
+nnoremap <C-t>c :xccmd closeCurrentTab<CR>
+nnoremap <C-t>h :xccmd selectPreviousTab<CR>
+nnoremap <C-t>l :xccmd selectNextTab<CR>
 
 " Make computers make sense
 nnoremap Y y$
@@ -71,5 +76,11 @@ nnoremap [e "uddk"uP
 nnoremap n nzz
 nnoremap N Nzz
 
+" Build stuff
+nmap ,r :run<CR>
+nmap ,w :w<CR>
+nmap ,b :make<CR>
+
 " Change the background color for searches
+set guioptions=r
 highlight Search guibg=orange
