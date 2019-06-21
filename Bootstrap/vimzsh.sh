@@ -14,8 +14,6 @@ cd fonts
 cd ..
 rm -rf fonts
 
-[ -d "~/dotfiles" ] && mv ~/dotfiles ~/dotfiles_backup
-mkdir ~/dotfiles
 cd ~
 
 echo "Setting up dotfiles.."
