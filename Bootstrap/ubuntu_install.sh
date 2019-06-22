@@ -31,6 +31,11 @@ sudo apt-get install make libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsq
 
 source vimzsh.sh
 
+# setup YCM if we have it
+if [ -d "$HOME/.vim/bundle/YouCompleteMe" ]; then
+    python3 $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
+fi
+
 git config --global alias.tree "log --graph --decorate --pretty=oneline --abbrev-commit"
 
 figlet Welcome Doheny.
