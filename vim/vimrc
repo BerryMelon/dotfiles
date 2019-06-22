@@ -79,13 +79,20 @@ nnoremap <silent> <leader>bc :call BgToggleSol()<cr>
 :nnoremap <leader>; :execute "normal! mqA;\e`q"<cr>
 :nnoremap <leader>d :YcmCompleter GetDoc<cr>
 " greps word under cursor
-" :nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
+:nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
 
 " copy to system clipboard
 :vnoremap <leader>y :'<,'>w !pbcopy<cr><cr>
 :nnoremap <leader>p :set paste<CR>:r !pbpaste<cr> \|:set nopaste<cr>
 
-autocmd FileType python nnoremap <buffer> <F9> :w<cr> :exec '!clear; python' shellescape(@%, 1)<cr>
+" easy navigation
+:nnoremap H <C-w>h
+:nnoremap L <C-w>l
+:nnoremap J <C-d>zz
+:nnoremap K <C-u>zz
+
+" run python while in vim
+autocmd FileType python nnoremap <leader>r :w<cr> :exec '!clear; python' shellescape(@%, 1)<cr>
 
 " Statusline customization
 set statusline+=%#warningmsg#
