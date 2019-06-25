@@ -58,4 +58,9 @@ brew cleanup
 
 source vimzsh.sh
 
+# setup YCM if we have it
+if [ -d "$HOME/.vim/bundle/YouCompleteMe" ]; then
+    $HOME/.vim/bundle/YouCompleteMe/install.sh --clang-completer
+fi
+
 figlet Welcome Doheny.
