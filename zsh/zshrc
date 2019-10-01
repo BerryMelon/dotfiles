@@ -117,3 +117,5 @@ alias zshrc='vi ~/.zshrc'
 
 LANG="en_US.UTF-8"
 export LANG
+
+source ./.zshrc_local

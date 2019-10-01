@@ -1,4 +1,5 @@
 #ignore bundles
 /vim/vim/bundle/
+/zsh/.zshrc_local
 
 *.swp
