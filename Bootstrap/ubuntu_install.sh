@@ -21,6 +21,9 @@ sudo apt-get install mosh -y
 
 sudo apt-get dist-upgrade -y
 sudo apt-get install openssl -y
+suto apt-get install openssh-server -y
+update-rc.d -f ssh remove
+update-rc.d -f ssh defaults
 
 source vimzsh.sh
 

@@ -29,6 +29,8 @@ ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/dotfiles/zsh/oh-my-zsh ~/.oh-my-zsh
 
+mkdir ~/.zshrc_local
+
 echo "creating backups for current tmux"
 mv ~/.tmux.conf ~/.tmux.conf_backup
 mv ~/.tmux.conf.local ~/.tmux.conf.local_backup
