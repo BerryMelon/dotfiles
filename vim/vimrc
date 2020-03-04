@@ -9,20 +9,15 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim' 
-" Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pangloss/vim-javascript'
 Plugin 'Valloric/YouCompleteMe'
-" Plugin 'jerrymarino/iCompleteMe'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'keith/swift.vim'
 Plugin 'rkulla/pydiction'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-dispatch'   " Asynchronous build
-" Plugin 'jerrymarino/SwiftPlayground.vim'
-Plugin 'BerryMelon/SwiftPlayground.vim'
+Plugin 'tpope/vim-dispatch'
 call vundle#end()            " required
 " }}}
 
