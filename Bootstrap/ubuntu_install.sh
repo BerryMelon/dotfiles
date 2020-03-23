@@ -27,6 +27,7 @@ update-rc.d -f ssh defaults
 
 pip3 install --upgrade pip
 pip3 install jupyter
+python ./upgrade_all_pip.py
 
 source vimzsh.sh
 
