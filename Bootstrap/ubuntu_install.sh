@@ -25,6 +25,9 @@ suto apt-get install openssh-server -y
 update-rc.d -f ssh remove
 update-rc.d -f ssh defaults
 
+pip3 install --upgrade pip
+pip3 install jupyter
+
 source vimzsh.sh
 
 git config --global alias.tree "log --graph --decorate --pretty=oneline --abbrev-commit"
