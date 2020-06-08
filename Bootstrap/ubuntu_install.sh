@@ -14,6 +14,8 @@ sudo apt-get install zsh-completions -y
 sudo apt-get install figlet -y
 sudo apt-get install cmake -y
 sudo apt-get install ctags -y
+sudo apt-get install python3-pip -y
+sudo apt-get install python3-venv -y
 
 sudo apt-get install python-software-properties
 sudo add-apt-repository ppa:keithw/mosh
