@@ -92,6 +92,7 @@ export EDITOR='vim'
 alias du='du -khs'
 alias zshrc='vi ~/.zshrc'
 alias activate_venv='source bin/activate'
+alias python='python3'
 
 LANG="en_US.UTF-8"
 export LANG

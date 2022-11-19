@@ -11,6 +11,8 @@ else
   exit 0
 fi
 
+DIR = "$( cd "$( dirname "$0" )" && pwd )"
+
 echo "Berrymelon's bootstrap setups now starting"
 
 sudo $pm update
@@ -39,9 +41,9 @@ update-rc.d -f ssh defaults
 
 pip3 install --upgrade pip
 pip3 install jupyter
-python ./upgrade_all_pip.py
+python $DIR/upgrade_all_pip.py
 
-source vimzsh.sh
+source $DIR/vimzsh.sh
 
 git config --global alias.tree "log --graph --decorate --pretty=oneline --abbrev-commit"
 
