@@ -7,6 +7,11 @@ export PATH="/opt/homebrew/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -56,7 +61,14 @@ ZSH_THEME="sunrise"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git autojump copyzshell)
 
-source $ZSH/oh-my-zsh.sh
+if [ -n "$ZSH_VERSION" ]; then
+    #echo "This is Zsh."
+    source $ZSH/oh-my-zsh.sh
+#elif [ -n "$BASH_VERSION" ]; then
+    #echo "This is Bash."
+#else
+    #echo "This is neither Zsh nor Bash."
+fi
 
 # User configuration
 
@@ -83,8 +95,13 @@ alias du='du -khs'
 alias zshrc='vi ~/.zshrc'
 alias activate_venv='source bin/activate'
 alias python='python3'
-alias glog='git log --graph --oneline --branches'
+alias glog="git log --graph --oneline --all --decorate-refs=refs/heads --decorate-refs=refs/remotes --decorate-refs=HEAD"
+alias branchpurge="git branch | grep -v 'checkpoint' | grep -v 'master' | grep -v 'main' | xargs git branch -D"
 
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

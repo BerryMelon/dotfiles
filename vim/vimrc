@@ -80,9 +80,16 @@ nnoremap <leader>d :YcmCompleter GetDoc<cr>
 " greps word under cursor
 nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen<cr>
 
-" copy to system clipboard
-vnoremap <leader>y :'<,'>w !pbcopy<cr><cr>
-nnoremap <leader>p :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+" Check if Vim has clipboard support
+if has('clipboard')
+    " Vim has clipboard support, use the built-in clipboard registers
+    vnoremap <leader>y "+y
+    nnoremap <leader>p "+p
+else
+    " Vim does not have clipboard support, use system commands (example for macOS)
+    vnoremap <leader>y :'<,'>w !pbcopy<cr><cr>
+    nnoremap <leader>p :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+endif
 
 " easy navigation
 nnoremap H <C-w>h
