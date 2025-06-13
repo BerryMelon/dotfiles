@@ -48,6 +48,7 @@ PACKAGES=(
     cmake
     ctags
     --with-clang llvm
+    neovim
 )
 
 echo "installing packages..."
