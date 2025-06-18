@@ -3,6 +3,9 @@
 if command -v apt-get >/dev/null; then
   echo "apt-get is used here"
   pm="apt-get"
+elif command -v apt >/dev/null; then
+  echo "apt is used here"
+  pm="apt"
 elif command -v yum >/dev/null; then
   echo "yum is used here"
   pm="yum"
@@ -35,7 +38,9 @@ sudo $pm install mosh -y
 
 sudo $pm dist-upgrade -y
 sudo $pm install openssl -y
-suto $pm install openssh-server -y
+sudo $pm install openssh-server -y
+sudo $pm install neovim -y
+
 update-rc.d -f ssh remove
 update-rc.d -f ssh defaults
 
