@@ -55,6 +55,12 @@ PACKAGES=(
 echo "installing packages..."
 brew install ${PACKAGES[@]}
 
+CASKS=(
+    iterm2
+)
+
+brew install --cask ${CASKS[@]}
+
 echo "cleaning up..."
 brew cleanup
 
