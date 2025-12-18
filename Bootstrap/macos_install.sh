@@ -25,6 +25,7 @@ brew install findutils
 PACKAGES=(
     autoconf
     git
+    gh
     markdown
     openssl
     readline
