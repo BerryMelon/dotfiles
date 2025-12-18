@@ -3,23 +3,21 @@
 echo "Berrymelon's bootstrap setups now starting"
 
 # Check for Homebrew, install if we don't have it
-if test ! $(which brew); then
-    echo "Installing homebrew..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Update homebrew recipes
 brew update
 
 # Install GNU core utilities (those that come with OS X are outdated)
-brew tap homebrew/dupes
 brew install coreutils
-brew install gnu-sed --with-default-names
-brew install gnu-tar --with-default-names
-brew install gnu-indent --with-default-names
-brew install gnu-which --with-default-names
-brew install gnu-grep --with-default-names
-brew install neovim
+brew install gnu-sed 
+brew install gnu-tar 
+brew install gnu-indent
+brew install gnu-which
+brew install gnu-grep
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew install findutils
@@ -48,7 +46,7 @@ PACKAGES=(
     ruby
     cmake
     ctags
-    --with-clang llvm
+    llvm
     neovim
 )
 
@@ -65,10 +63,5 @@ echo "cleaning up..."
 brew cleanup
 
 source vimzsh.sh
-
-# setup YCM if we have it
-if [ -d "$HOME/.vim/bundle/YouCompleteMe" ]; then
-    $HOME/.vim/bundle/YouCompleteMe/install.sh --clang-completer
-fi
 
 figlet Welcome Doheny.
