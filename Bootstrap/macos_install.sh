@@ -47,6 +47,7 @@ PACKAGES=(
     ruby
     cmake
     ctags
+    ripgrep
     llvm
     neovim
 )
