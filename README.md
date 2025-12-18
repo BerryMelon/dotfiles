@@ -1,3 +1,3 @@
-# My personal vimrc
+# My personal script for every new device
 
-Uses Vundle for plugin management
+Just some personal stuff.
