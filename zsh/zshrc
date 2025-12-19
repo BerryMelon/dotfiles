@@ -95,8 +95,11 @@ alias du='du -khs'
 alias zshrc='vi ~/.zshrc'
 alias activate_venv='source bin/activate'
 alias python='python3'
-alias glog="git log --graph --oneline --all --decorate-refs=refs/heads --decorate-refs=refs/remotes --decorate-refs=HEAD"
+alias glog='refs=$(git for-each-ref --format="%(refname) %(upstream)" refs/heads | awk "{for(i=1;i<=NF;i++) if(\$i!=\"\") print \$i}" | sort -u | tr "\n" " "); git log --graph --oneline --decorate --simplify-by-decoration $refs'
 alias branchpurge="git branch | grep -v 'checkpoint' | grep -v 'master' | grep -v 'main' | xargs git branch -D"
+
+git config --global core.editor "nvim"
+git config --global pager.branch false
 
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
